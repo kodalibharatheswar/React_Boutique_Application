@@ -24,7 +24,7 @@ jobs:
 
     - name: Build React App
       run: |
-        npm ci
+        npm install --legacy-peer-deps
         
         # Inject the EC2 Backend URL dynamically during build
         echo "REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }}" >> .env.production
