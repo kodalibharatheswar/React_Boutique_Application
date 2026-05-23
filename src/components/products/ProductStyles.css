@@ -1,0 +1,318 @@
+/* ================================================
+   Elegant Boutique Product Styles
+   ================================================ */
+
+/* ---- Product Card ---- */
+.product-card-hover {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.product-card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.08) !important;
+}
+
+.transform-hover-scale {
+    transition: transform 0.6s ease;
+}
+.product-card-hover:hover .transform-hover-scale,
+.transform-hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.transition-colors {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.hover-brand:hover { color: var(--brand-orange) !important; }
+.hover-bg-light:hover { background-color: var(--light-bg) !important; }
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tracking-wider { letter-spacing: 0.1em; }
+
+/* ---- Product Card Image ---- */
+.product-card {
+    border-radius: 0 !important;
+    overflow: hidden;
+    border: none !important;
+    position: relative;
+    cursor: pointer;
+    background: transparent !important;
+}
+
+/* Desktop: fixed aspect ratio, looks great in 3-col grid */
+.product-card .card-img-top {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    display: block;
+}
+
+.product-card:hover .card-img-top { transform: scale(1.05); }
+
+.product-card .card-body {
+    padding: 1.5rem 0 0 0 !important;
+    text-align: center;
+}
+
+.product-card .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.product-card .text-muted.small {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+/* ---- Sale Badges ---- */
+.sale-status-badge {
+    position: absolute;
+    top: 15px; left: 15px;
+    z-index: 10;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    text-transform: uppercase;
+}
+.sale-badge, .clearance-badge { background-color: #fff; color: #000; }
+
+/* ---- Buttons ---- */
+.btn-outline-danger {
+    color: var(--brand-dark);
+    border-color: var(--border-color);
+}
+.btn-outline-danger:hover {
+    background-color: var(--brand-dark);
+    border-color: var(--brand-dark);
+    color: var(--white);
+}
+
+/* ---- Filter Sidebar (desktop) ---- */
+.filter-sidebar {
+    background-color: var(--white);
+    padding: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.filter-group {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+.filter-group:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/* ---- Color Swatches ---- */
+.color-swatch-wrapper input:checked + .color-swatch {
+    border-color: var(--brand-dark);
+    box-shadow: 0 0 0 1px var(--brand-dark);
+}
+.color-swatch {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    margin-right: 10px;
+    transition: all 0.2s;
+}
+.color-label {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+}
+
+/* ---- Misc ---- */
+.product-card a { text-decoration: none; color: inherit; display: contents; }
+.product-link-wrapper { position: absolute; inset: 0; z-index: 5; }
+.btn-group-actions { position: relative; z-index: 10; }
+.original-price { text-decoration: line-through; color: #888; font-size: 0.75em; margin-right: 5px; }
+.discount-badge { font-size: 0.7em; margin-left: 5px; }
+
+/* ================================================
+   MOBILE RESPONSIVE — max-width: 767px
+   ================================================ */
+@media (max-width: 767.98px) {
+
+    /* Filter sidebar on mobile: remove desktop border/padding (handled by Bootstrap classes) */
+    .filter-sidebar {
+        border: none;
+        padding: 0;
+    }
+
+    /* Product images on mobile — slightly shorter to show more products */
+    .product-card .card-img-top {
+        aspect-ratio: 3/4;
+    }
+
+    /* ---- ProductDetail Action Buttons: always one row ---- */
+    .product-actions-row {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+        min-height: 50px;
+    }
+
+    .product-qty-box {
+        width: 88px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .product-add-to-cart {
+        flex: 1 1 auto !important;
+        font-size: 0.8rem !important;
+        padding: 0 6px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+    }
+
+    .product-add-to-cart .cart-icon {
+        display: none !important; /* hide icon on very small screens to save space */
+    }
+
+    .product-wishlist-btn {
+        width: 44px !important;
+        padding: 0 !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* ---- ProductDetail Page: Edge-to-Edge on Mobile ---- */
+    .product-detail-wrapper {
+        background-color: #fff !important;
+    }
+    
+    .product-detail-page {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .product-detail-card {
+        padding: 16px 12px !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        margin-bottom: 0 !important;
+    }
+    
+    .product-detail-page nav {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    /* Reduce badge margin on mobile */
+    .product-detail-card .position-absolute.m-4 {
+        margin: 0.75rem !important;
+    }
+}
+
+/* === Tablet (sm to md) — slightly more breathing room === */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .product-detail-wrapper {
+        background-color: #f8f9fa !important;
+        padding-top: 16px !important;
+    }
+
+    .product-detail-page {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .product-detail-card {
+        padding: 24px !important;
+        border-radius: 16px !important;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+    }
+}
+
+/* === Tablet fix for border === */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .filter-sidebar {
+        border: 1px solid var(--border-color);
+        padding: 20px;
+    }
+}
+
+/* === Responsive utilities for md+ screens === */
+@media (min-width: 768px) {
+    /* Show cart icon on tablet/desktop */
+    .product-add-to-cart .cart-icon {
+        display: inline-block !important;
+    }
+
+    /* Restore comfortable button sizing on tablet/desktop */
+    .product-actions-row {
+        min-height: 56px;
+        gap: 12px !important;
+    }
+
+    .product-qty-box {
+        width: 120px !important;
+    }
+
+    .product-add-to-cart {
+        font-size: 1rem !important;
+        padding: 0 16px !important;
+    }
+
+    .product-wishlist-btn {
+        width: 56px !important;
+        padding: 0 !important;
+    }
+}
+
+/* === Desktop (lg+) — centered card on grey background === */
+@media (min-width: 992px) {
+    .product-detail-wrapper {
+        background-color: #f8f9fa !important;
+        padding-top: 24px !important;
+    }
+
+    .product-detail-page {
+        max-width: 960px;
+        margin: 0 auto;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .product-detail-card {
+        padding: 40px !important;
+        border-radius: 20px !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+    }
+}
+
+/* === Extra-large desktop (xl+) === */
+@media (min-width: 1200px) {
+    .product-detail-page {
+        max-width: 1140px;
+    }
+}
