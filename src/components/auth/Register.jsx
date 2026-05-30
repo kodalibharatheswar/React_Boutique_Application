@@ -110,6 +110,8 @@ const Register = () => {
     }
   };
 
+  const googleOAuthUrl = (process.env.REACT_APP_API_URL || 'http://localhost:8080/api').replace(/\/api$/, '') + '/oauth2/authorization/google';
+
   return (
     <>
       <div className="auth-container py-5 mt-5">
@@ -133,7 +135,7 @@ const Register = () => {
           {/* Google OAuth Login Button */}
           <div className="mb-4 text-center">
             <a 
-              href="http://localhost:8080/oauth2/authorization/google" 
+              href={googleOAuthUrl} 
               className="btn w-100 d-flex justify-content-center align-items-center py-2"
               style={{ backgroundColor: '#ffffff', color: '#3c4043', border: '1px solid #dadce0', borderRadius: '4px', fontWeight: '500', transition: 'all 0.2s ease', boxShadow: '0 1px 2px 0 rgba(60,64,67,0.30)' }}
             >
